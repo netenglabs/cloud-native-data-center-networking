@@ -8,6 +8,18 @@
  - name: copy interfaces
    copy: src=config-files/{{scenario}}/{{ansible_hostname}}/interfaces dest=/etc/network/
 
- - name: restart interfaces
+ - name: restart server to get interfaces working
+   shell: sleep 1 && shutdown -r 0
    become: yes
-   command: ifup -a --force
+   async: 1
+   poll: 0
+   ignore_errors: true
+
+# - name: restart interfaces
+#   become: yes
+#   command: ifup -a --force
+
+# - name: restart networking
+#   service:
+#      name: networking
+#      state: restarted

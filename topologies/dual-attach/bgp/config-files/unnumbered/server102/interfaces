@@ -25,3 +25,8 @@ iface bond0 inet static
   address 172.16.2.102/24
   post-up ip route add 172.16.0.0/16 via 172.16.2.1
   post-up ip route add 10.0.0.0/8 via 172.16.2.1
+
+iface bond0 inet6 static
+  address 2001:0DB8:0:2::0102
+  netmask 64
+  post-up ip -6 route add 2001:0DB8::/32 via 2001:0DB8:0:2::0001

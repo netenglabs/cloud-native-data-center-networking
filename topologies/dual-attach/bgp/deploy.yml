@@ -102,8 +102,8 @@
 
   roles:
     - role: enable_ipv6
-      when: scenario=="docker"
     - role: copy-int-reboot-servers
+    - role: enable_ipv6
     - role: install_docker
       when: scenario=="docker"
     - role: install_frr
