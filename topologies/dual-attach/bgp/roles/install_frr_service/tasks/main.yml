@@ -1,0 +1,10 @@
+---
+  - name: copy FRR service file
+    copy: src=config-files/{{scenario}}/{{ansible_hostname}}/frr.service dest=/etc/systemd/system/
+  - name: reload systemctl
+    shell: systemctl daemon-reload
+  - name: start frr
+    systemd:
+       name: frr
+       state: restarted
+    failed_when: false

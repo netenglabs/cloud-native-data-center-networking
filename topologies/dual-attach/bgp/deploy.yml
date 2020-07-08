@@ -122,4 +122,10 @@
       become: yes
       when: scenario=="docker"
         
-      
+- hosts: firewall
+  user: cumulus
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: install_frr_service
