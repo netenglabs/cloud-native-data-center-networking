@@ -9,6 +9,6 @@
      state: present
  - name: Add FRR
    apt:
-     name: frr
+     name: frr=7.2.1
      state: present
      force_apt_get: True
