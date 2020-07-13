@@ -12,6 +12,7 @@
     apt:
       name: docker-ce
       state: present
+      update_cache: yes
       force_apt_get: True
 
   - name: Add user to docker group

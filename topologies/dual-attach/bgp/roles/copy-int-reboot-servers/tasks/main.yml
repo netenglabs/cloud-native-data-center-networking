@@ -15,6 +15,11 @@
    poll: 0
    ignore_errors: true
 
+ - name: Wait for servers to come back up
+   wait_for_connection:
+       timeout: 180
+       delay: 15
+
 # - name: restart interfaces
 #   become: yes
 #   command: ifup -a --force
